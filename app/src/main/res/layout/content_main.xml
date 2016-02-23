@@ -10,24 +10,22 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity">
 
-    <FrameLayout android:layout_width="match_parent"
+   <FrameLayout android:layout_width="match_parent"
                  android:layout_weight=".3"
                  android:layout_height="0dp">
     <fragment android:id="@+id/graph_fragment"
               android:name="com.droidev.util.expensetracker.ui.GraphHolderFragment"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:layout="@layout/fragment_splash"/>
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </FrameLayout>
-    <FrameLayout android:layout_width="match_parent"
+   <FrameLayout android:layout_width="match_parent"
                  android:layout_weight=".7"
                  android:layout_height="0dp">
     <fragment android:id="@+id/expense_fragment"
               android:name="com.droidev.util.expensetracker.ui.ExpenseHolderFragment"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:layout="@layout/fragment_splash"/>
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </FrameLayout>
 </LinearLayout>

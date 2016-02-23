@@ -38,9 +38,8 @@ public class ExpenseHolderFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_expense_holder, container, false);
-        ;
         initUI(view);
-        showSlidingLayout();
+        //showSlidingLayout();
         return view;
     }
 

@@ -19,7 +19,6 @@ import java.util.TimerTask;
 public class GraphHolderFragment extends Fragment {
 
     private ViewPagerCustomDuration mSliderViewPager;
-    private Timer mSwipeTimer;
 
     public GraphHolderFragment() {
     }
