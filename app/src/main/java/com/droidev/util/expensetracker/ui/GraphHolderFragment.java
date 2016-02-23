@@ -47,10 +47,8 @@ public class GraphHolderFragment extends Fragment {
         GraphViewPagerAdapter adapter = new GraphViewPagerAdapter
                 (getActivity().getSupportFragmentManager());
         mSliderViewPager.setAdapter(adapter);
-        mSliderViewPager.setOffscreenPageLimit(2);
-        mSliderViewPager.setScrollDurationFactor(7.0);
-        PageScrollListener pageScrollListener = new PageScrollListener();
-        mSliderViewPager.addOnPageChangeListener(pageScrollListener);
+        mSliderViewPager.setOffscreenPageLimit(10);
+        mSliderViewPager.setScrollDurationFactor(3);
     }
 
 
@@ -70,15 +68,6 @@ public class GraphHolderFragment extends Fragment {
         @Override
         public int getCount() {
             return MAX_PAGES;
-        }
-    }
-
-    /**
-     * Listener for getting currently selected slide
-     */
-    private class PageScrollListener extends ViewPager.SimpleOnPageChangeListener {
-
-        public void onPageSelected(int position) {
         }
     }
 }

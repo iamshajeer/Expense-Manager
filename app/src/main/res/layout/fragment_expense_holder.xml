@@ -4,4 +4,9 @@
              android:layout_height="match_parent"
              tools:context="com.droidev.util.expensetracker.ui.ExpenseHolderFragment">
 
+    <com.droidev.util.expensetracker.ui.widget.ViewPagerCustomDuration
+            android:id="@+id/expense_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
 </FrameLayout>
