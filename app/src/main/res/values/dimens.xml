@@ -9,4 +9,6 @@
     <dimen name="drawer_item_padding">10dp</dimen>
     <dimen name="text_size_15">15sp</dimen>
     <dimen name="text_size_17">17sp</dimen>
+    <dimen name="dimen_xs">5dp</dimen>
+    <dimen name="dimen_sm">10dp</dimen>
 </resources>

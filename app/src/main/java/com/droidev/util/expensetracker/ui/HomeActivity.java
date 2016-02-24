@@ -87,7 +87,7 @@ public class HomeActivity extends BaseActivity implements DrawerAdapter.DrawerIn
         // TODO: 24/2/16 remove hard coded name
         String userName = PreferenceHelper.getUserName(this);
         String userEmail = PreferenceHelper.getUserEmail(this);
-        item.setUserName("User Name");
+        item.setUserName("Shajeer Ahmd");
         item.setUserEmail("info4shajeer@gmail.com");
         mDrawerItems.add(0, item);
     }
@@ -129,6 +129,7 @@ public class HomeActivity extends BaseActivity implements DrawerAdapter.DrawerIn
                 break;
             case 5:
                 launchScreen(LoginActivity.class);
+                finish();
                 break;
             default:
                 break;

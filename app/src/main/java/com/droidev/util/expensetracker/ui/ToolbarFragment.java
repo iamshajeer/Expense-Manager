@@ -68,7 +68,6 @@ public class ToolbarFragment extends Fragment {
         toolbar.setLogo(resId);
     }
 
-
     public interface AttachToolbar {
         void onAttachToolbar(Toolbar toolbar);
     }

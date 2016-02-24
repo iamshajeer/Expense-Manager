@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="@dimen/dimen_sm"
+                    android:background="@color/colorPrimary">
+        <com.droidev.util.expensetracker.ui.widget.AnyFontTextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:text="@string/add_expense_title"
+                custom:typefaceAsset="fonts/NotoSans-Regular.ttf"
+                android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:padding="@dimen/dimen_sm"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+                android:padding="@dimen/dimen_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:hint="@string/expense_name"
+                    android:id="@+id/expns_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:padding="@dimen/dimen_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:hint="@string/expense_description"
+                    android:lines="3"
+                    android:maxLines="5"
+                    android:id="@+id/expns_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:padding="@dimen/dimen_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:id="@+id/expns_rate"
+                    android:hint="@string/expense_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button style="@style/DefaultButton"
+                android:layout_gravity="center"
+                android:id="@+id/btn_add_expns"
+                android:text="@string/add_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

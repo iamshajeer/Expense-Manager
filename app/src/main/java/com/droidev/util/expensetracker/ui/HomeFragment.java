@@ -39,8 +39,12 @@ public class HomeFragment extends ToolbarFragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "we are working on this :-)", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                try {
+                    AddExpenseDialog dialog = AddExpenseDialog.getInstance();
+                    dialog.show(getFragmentManager(), "TAG");
+                }catch (IllegalStateException ise) {
+                    ise.printStackTrace();
+                }
             }
         });
     }

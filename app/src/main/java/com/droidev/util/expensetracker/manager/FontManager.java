@@ -40,7 +40,7 @@ public class FontManager {
             font = Typeface.createFromAsset(mAssetManager, asset);
             fonts.put(asset, font);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         if (font == null) {
