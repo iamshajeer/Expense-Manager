@@ -5,4 +5,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="def_elevation">4dp</dimen>
     <dimen name="toolbar_title_text">20sp</dimen>
+    <dimen name="drawer_item_icon_width">30dp</dimen>
+    <dimen name="drawer_item_padding">10dp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
 </resources>
