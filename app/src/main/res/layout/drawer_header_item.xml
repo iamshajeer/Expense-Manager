@@ -5,14 +5,35 @@
                 android:background="@drawable/header_expns"
                 android:layout_height="140dp">
 
-    <TextView
-            android:id="@+id/user_name"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_centerVertical="true"
+                  android:layout_margin="@dimen/activity_horizontal_margin"
+                  android:orientation="horizontal"
+                  android:layout_height="wrap_content">
 
+        <LinearLayout android:layout_width="0dp"
+                      android:orientation="vertical"
+                      android:layout_gravity="center_vertical"
+                      android:layout_weight=".8"
+                      android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/user_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textSize="13sp"
+                    android:id="@+id/user_mail"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+                android:layout_weight=".2"
+                android:id="@+id/user_pic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
 </RelativeLayout>

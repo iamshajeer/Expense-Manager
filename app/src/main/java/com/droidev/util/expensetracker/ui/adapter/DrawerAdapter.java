@@ -1,6 +1,8 @@
 package com.droidev.util.expensetracker.ui.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.droidev.util.expensetracker.R;
+import com.droidev.util.expensetracker.ui.CircleTransform;
 import com.droidev.util.expensetracker.ui.model.ListItems;
 import com.droidev.util.expensetracker.ui.model.NavigationDrawerMenuItem;
 import com.droidev.util.expensetracker.ui.model.NavigationMenuHeaderItem;
@@ -31,7 +34,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = null;
+        View view;
 
         switch (viewType) {
 
@@ -53,9 +56,9 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        if(holder instanceof DrawerMenuItemViewHolder) {
+        if (holder instanceof DrawerMenuItemViewHolder) {
             setDrawerItem((DrawerMenuItemViewHolder) holder, position);
-        }else if(holder instanceof DrawerHeaderItemHolder) {
+        } else if (holder instanceof DrawerHeaderItemHolder) {
             setHeaderData((DrawerHeaderItemHolder) holder, position);
         }
     }
@@ -63,25 +66,32 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private void setHeaderData(DrawerHeaderItemHolder holder, int position) {
         NavigationMenuHeaderItem item = (NavigationMenuHeaderItem) mDataSet.get(position);
         String userName = item.getmUserName();
+        String userEmail = item.getmUserEmail();
 
-        if(!TextUtils.isEmpty(userName)) {
+        if (!TextUtils.isEmpty(userName)) {
             holder.mUserName.setText(userName);
         }
+
+        if (!TextUtils.isEmpty(userEmail)) {
+            holder.mUserEmail.setText(userEmail);
+        }
+
+        Drawable userPic = ContextCompat.getDrawable(mContext,R.drawable.profile);
+        Picasso.with(mContext).load(item.getmUserImage()).placeholder(userPic)
+                .transform((new
+                        CircleTransform()))
+                .into(holder.mUserImage);
     }
 
     private void setDrawerItem(DrawerMenuItemViewHolder holder, int position) {
         NavigationDrawerMenuItem item = (NavigationDrawerMenuItem) mDataSet.get(position);
         String menuName = item.getMenuName();
 
-        if(!TextUtils.isEmpty(menuName)) {
+        if (!TextUtils.isEmpty(menuName)) {
             holder.mDrawerMenu.setText(menuName);
         }
-        String imageUrl = item.getMenuImageUrl();
-
-        if(!TextUtils.isEmpty(imageUrl)) {
-            Picasso.with(mContext).load(imageUrl)
-                    .fit().centerCrop().into(holder.mDrawerIcon);
-        }
+        int imageId = item.getMenuImageId();
+        Picasso.with(mContext).load(imageId).into(holder.mDrawerIcon);
     }
 
     @Override
@@ -100,10 +110,14 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private class DrawerHeaderItemHolder extends RecyclerView.ViewHolder {
 
         TextView mUserName;
+        TextView mUserEmail;
+        ImageView mUserImage;
 
         public DrawerHeaderItemHolder(View itemView) {
             super(itemView);
             mUserName = (TextView) itemView.findViewById(R.id.user_name);
+            mUserEmail= (TextView) itemView.findViewById(R.id.user_mail);
+            mUserImage = (ImageView) itemView.findViewById(R.id.user_pic);
         }
     }
 

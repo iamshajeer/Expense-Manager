@@ -1,5 +1,6 @@
 package com.droidev.util.expensetracker.ui;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -58,32 +59,30 @@ public class HomeActivity extends BaseActivity{
     }
 
     private void prepareDrawerItems() {
-        String[] drawerMenuList = getResources().getStringArray(R.array.drawer_menu_items);
-        int totalMenus = drawerMenuList.length;
-        //String[] drawerIconList = fillIconList(totalMenus);
-        mDrawerItems = new ArrayList<>(totalMenus);
+        getNavDrawerItemsList();
         addHeaderDetailsToDrawer();
-
-        for (int index = 0; index < totalMenus; index++) {
-            NavigationDrawerMenuItem item = new NavigationDrawerMenuItem();
-            item.setMenuName(drawerMenuList[index]);
-            mDrawerItems.add(item);
-           // item.setMenuImageUrl(drawerIconList[index]);
-        }
     }
 
     private void addHeaderDetailsToDrawer() {
         NavigationMenuHeaderItem item= new NavigationMenuHeaderItem();
-        item.setUserName("Shajeer Ahamed");
-        mDrawerItems.add(item);
+        // TODO: 24/2/16 remove hard coded name
+        item.setUserName("User Name");
+        item.setUserEmail("info4shajeer@gmail.com");
+        mDrawerItems.add(0,item);
     }
 
-    private String[] fillIconList(int total) {
-        String[] iconList = new String[total];
-
-        for (int i = 0; i < total; i++) {
-
+    private void getNavDrawerItemsList() {
+        String[] drawerMenuTitles = getResources().getStringArray(R.array.drawer_menu_items);
+        mDrawerItems = new ArrayList<>(drawerMenuTitles.length);
+        TypedArray icons = getResources().obtainTypedArray(R.array.nav_drawer_item_icons);
+        for (int i = 0; i < drawerMenuTitles.length; i++) {
+            NavigationDrawerMenuItem navDrawerItem = new NavigationDrawerMenuItem();
+            navDrawerItem.setMenuName(drawerMenuTitles[i]);
+            int resId = icons.getResourceId(i, 0);
+            navDrawerItem.setmMenuImageId(resId);
+            mDrawerItems.add(navDrawerItem);
         }
-        return iconList;
     }
+
+
 }

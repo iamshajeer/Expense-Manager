@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="nav_drawer_item_icons">
+        <item>@drawable/ic_home_black_48dp</item>
+        <item>@drawable/ic_settings_black_48dp</item>
+        <item>@drawable/ic_face_black_48dp</item>
+        <item>@drawable/ic_dashboard_black_48dp</item>
+        <item>@drawable/ic_sentiment_dissatisfied_black_48dp</item>
+    </array>
+</resources>

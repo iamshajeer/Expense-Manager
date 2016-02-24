@@ -32,6 +32,10 @@ public class NavigationMenuHeaderItem implements ListItems {
         this.mUserName = mUserName;
     }
 
+    public void setUserEmail(String mUserEmail) {
+        this.mUserEmail = mUserEmail;
+    }
+
     @Override
     public int getType() {
         return NAVIGATION_HEADER_ITEM;
