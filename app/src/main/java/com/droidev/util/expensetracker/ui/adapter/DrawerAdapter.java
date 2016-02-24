@@ -2,6 +2,7 @@ package com.droidev.util.expensetracker.ui.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -76,7 +77,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             holder.mUserEmail.setText(userEmail);
         }
 
-        Drawable userPic = ContextCompat.getDrawable(mContext,R.drawable.profile);
+        Drawable userPic = ContextCompat.getDrawable(mContext, R.drawable.profile);
         Picasso.with(mContext).load(item.getmUserImage()).placeholder(userPic)
                 .transform((new
                         CircleTransform()))
@@ -92,6 +93,12 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
         int imageId = item.getMenuImageId();
         Picasso.with(mContext).load(imageId).into(holder.mDrawerIcon);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            holder.mDrawerIcon.setImageAlpha(150);
+        } else {
+            holder.mDrawerIcon.setAlpha(150);
+        }
     }
 
     @Override
@@ -116,7 +123,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         public DrawerHeaderItemHolder(View itemView) {
             super(itemView);
             mUserName = (TextView) itemView.findViewById(R.id.user_name);
-            mUserEmail= (TextView) itemView.findViewById(R.id.user_mail);
+            mUserEmail = (TextView) itemView.findViewById(R.id.user_mail);
             mUserImage = (ImageView) itemView.findViewById(R.id.user_pic);
         }
     }
