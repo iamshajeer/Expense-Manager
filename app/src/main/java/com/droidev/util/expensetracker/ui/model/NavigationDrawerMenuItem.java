@@ -7,7 +7,15 @@ public class NavigationDrawerMenuItem implements ListItems {
 
     private String mMenuName;
     private int mMenuImageId;
+    private boolean isSelected;
 
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
 
     public String getMenuName() {
         return mMenuName;

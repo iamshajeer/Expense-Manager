@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:contentInsetLeft="0dp"
+        app:theme="@style/ToolbarStyle">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <ImageView
+                android:id="@+id/toolbar_left_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:visibility="gone"/>
+
+        <ImageView
+                android:id="@+id/toolbar_edit_card_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/toolbar_right_container"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"/>
+
+        <FrameLayout
+                android:id="@+id/toolbar_right_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+            <ImageView
+                    android:id="@+id/toolbar_right_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+
+            <com.droidev.util.expensetracker.ui.widget.AnyFontTextView
+                    android:id="@+id/toolbar_right_title"
+                    style="@style/ToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    custom:typefaceAsset="fonts/NotoSans-Regular.ttf"/>
+        </FrameLayout>
+
+        <com.droidev.util.expensetracker.ui.widget.AnyFontTextView
+                android:id="@+id/toolbar_title"
+                style="@style/ToolbarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/toolbar_left_icon"
+                android:layout_toLeftOf="@id/toolbar_edit_card_icon"
+                android:layout_toRightOf="@id/toolbar_left_icon"
+                android:layout_toStartOf="@id/toolbar_right_container"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:singleLine="true"
+                custom:typefaceAsset="fonts/NotoSans-Bold.ttf"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>
