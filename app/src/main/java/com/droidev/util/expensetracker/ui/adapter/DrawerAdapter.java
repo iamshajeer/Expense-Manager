@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.droidev.util.expensetracker.R;
 import com.droidev.util.expensetracker.ui.CircleTransform;
@@ -27,10 +28,12 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     ArrayList<ListItems> mDataSet;
     Context mContext;
+    DrawerInteractListener mListener;
 
     public DrawerAdapter(Context mContext, ArrayList<ListItems> mDataSet) {
         this.mContext = mContext;
         this.mDataSet = mDataSet;
+        mListener = (DrawerInteractListener) mContext;
     }
 
     @Override
@@ -84,7 +87,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 .into(holder.mUserImage);
     }
 
-    private void setDrawerItem(DrawerMenuItemViewHolder holder, int position) {
+    private void setDrawerItem(DrawerMenuItemViewHolder holder, final int position) {
         NavigationDrawerMenuItem item = (NavigationDrawerMenuItem) mDataSet.get(position);
         String menuName = item.getMenuName();
 
@@ -98,6 +101,24 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             holder.mDrawerIcon.setImageAlpha(150);
         } else {
             holder.mDrawerIcon.setAlpha(150);
+        }
+
+        holder.mMenuItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                triggerDrawerItemClick(position);
+            }
+        });
+    }
+
+    /**
+     * triggering drawer item click to activity
+     * @param position position of clicked item
+     */
+    private void triggerDrawerItemClick(int position) {
+
+        if (mListener != null) {
+            mListener.onDrawerItemClicked(position);
         }
     }
 
@@ -129,13 +150,19 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     private class DrawerMenuItemViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout mMenuItem;
         ImageView mDrawerIcon;
         TextView mDrawerMenu;
 
         public DrawerMenuItemViewHolder(View itemView) {
             super(itemView);
+            mMenuItem = (LinearLayout) itemView.findViewById(R.id.menu_item_panel);
             mDrawerIcon = (ImageView) itemView.findViewById(R.id.drawer_icon);
             mDrawerMenu = (TextView) itemView.findViewById(R.id.menu_item);
         }
+    }
+
+    public interface DrawerInteractListener {
+        void onDrawerItemClicked(int position);
     }
 }

@@ -1,5 +1,7 @@
 package com.droidev.util.expensetracker.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,7 +19,7 @@ import com.droidev.util.expensetracker.ui.model.NavigationMenuHeaderItem;
 import java.util.ArrayList;
 
 
-public class HomeActivity extends BaseActivity{
+public class HomeActivity extends BaseActivity implements DrawerAdapter.DrawerInteractListener{
 
     private ArrayList<ListItems> mDrawerItems;
     private DrawerAdapter mDrawerAdaper;
@@ -68,7 +70,7 @@ public class HomeActivity extends BaseActivity{
         // TODO: 24/2/16 remove hard coded name
         item.setUserName("User Name");
         item.setUserEmail("info4shajeer@gmail.com");
-        mDrawerItems.add(0,item);
+        mDrawerItems.add(0, item);
     }
 
     private void getNavDrawerItemsList() {
@@ -84,5 +86,39 @@ public class HomeActivity extends BaseActivity{
         }
     }
 
+
+    @Override
+    public void onDrawerItemClicked(int position) {
+        launchScreens(position);
+    }
+
+    private void launchScreens(int position) {
+
+        switch (position) {
+
+            case 0:
+                launchScreen(HomeActivity.class);
+                break;
+            case 1:
+                launchScreen(SettingsActivity.class);
+                break;
+            case 2:
+                launchScreen(UserProfileActivity.class);
+                break;
+            case 3:
+                launchScreen(DashBoardActivity.class);
+                break;
+            case 4:
+                launchScreen(LoginActivity.class);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void launchScreen(Class<?> activity) {
+        Intent intent = new Intent(this, activity);
+        startActivity(intent);
+    }
 
 }
