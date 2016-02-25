@@ -9,8 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.droidev.util.expensetracker.R;
 import com.droidev.util.expensetracker.ui.ToolbarFragment;
+import com.droidev.util.expensetracker.ui.model.ExpenseListItem;
+import com.droidev.util.expensetracker.ui.model.ListItems;
 
-public class HomeFragment extends ToolbarFragment {
+import java.util.ArrayList;
+
+public class HomeFragment extends ToolbarFragment implements AddExpenseDialog
+        .AddExpenseDialogInteractor {
+
+    ArrayList<ListItems> mExpenseList;
+
     public HomeFragment() {
     }
 
@@ -40,12 +48,18 @@ public class HomeFragment extends ToolbarFragment {
             @Override
             public void onClick(View view) {
                 try {
-                    AddExpenseDialog dialog = AddExpenseDialog.getInstance();
+                    AddExpenseDialog dialog = AddExpenseDialog.getInstance(HomeFragment.this);
                     dialog.show(getFragmentManager(), "TAG");
-                }catch (IllegalStateException ise) {
+                } catch (IllegalStateException ise) {
                     ise.printStackTrace();
                 }
             }
         });
+    }
+
+    @Override
+    public void onSubmitted(String name, String description, float amount) {
+        ExpenseListItem item = new ExpenseListItem(name, description,amount);
+        mExpenseList.add(item);
     }
 }

@@ -13,6 +13,7 @@ import com.droidev.util.expensetracker.R;
 public class AddExpenseDialog extends BaseDialogFragment {
 
     private static AddExpenseDialog sInstance = new AddExpenseDialog();
+    private static AddExpenseDialogInteractor mListener;
 
     /**
      * call getInstance method to
@@ -32,7 +33,13 @@ public class AddExpenseDialog extends BaseDialogFragment {
     private void initView(View view) {
     }
 
-    public static AddExpenseDialog getInstance() {
+    public static AddExpenseDialog getInstance(AddExpenseDialogInteractor listener) {
+        mListener = listener;
         return sInstance;
+    }
+
+    public interface AddExpenseDialogInteractor{
+
+        void onSubmitted(String name, String description, float amount);
     }
 }

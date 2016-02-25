@@ -7,6 +7,7 @@ public class Constants {
 
     public static final boolean ENABLE_TOAST = true;
     public static final boolean ENABLE_LOG = true;
+    public static final String MOBILE_OS = "Android";
 
     public interface UserPreferences{
         String PREF_USR_EMAIL = "user_email";

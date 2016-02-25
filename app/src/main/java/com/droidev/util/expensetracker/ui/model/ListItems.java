@@ -6,6 +6,7 @@ package com.droidev.util.expensetracker.ui.model;
 public interface ListItems {
     int NAVIGATION_HEADER_ITEM = 0;
     int NAVIGATION_NORMAL_ITEM = 1;
+    int EXPENSE_LIST_ITEM = 2;
 
     int getType();
 }

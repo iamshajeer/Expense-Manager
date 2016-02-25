@@ -20,6 +20,12 @@
     <style name="DefaultButton" parent="AppTheme">
         <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="DefaultButtonWithFixedWidth" parent="DefaultButton">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -31,8 +37,8 @@
     </style>
 
     <style name="DialogAnimation">
-        <item name="android:windowEnterAnimation">@anim/slide_in</item>
-        <item name="android:windowExitAnimation">@anim/slide_down</item>
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
     </style>
 
 </resources>
