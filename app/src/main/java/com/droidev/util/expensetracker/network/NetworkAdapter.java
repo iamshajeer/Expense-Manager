@@ -32,6 +32,7 @@ public class NetworkAdapter {
 
     public void initLogin(UserLoginDetails userLoginDetails, final ResponseCallback<GenericResponse>
             responseCallback) {
+
         Callback<GenericResponse> callback = new RestCallback<GenericResponse>() {
 
             @Override
