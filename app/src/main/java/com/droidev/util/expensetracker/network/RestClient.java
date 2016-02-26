@@ -1,9 +1,12 @@
 package com.droidev.util.expensetracker.network;
 
 import android.content.Context;
+
 import com.droidev.util.expensetracker.BuildConfig;
 import com.droidev.util.expensetracker.R;
+import com.droidev.util.expensetracker.intf.ApiService;
 import com.droidev.util.expensetracker.utils.Constants;
+
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
@@ -13,10 +16,10 @@ import retrofit.client.OkClient;
  */
 public class RestClient {
 
+    public static final int AUTH_HEADER = 0;
     private static final String HEADER_APP_VERSION_CODE = "app-version-code";
     private static final String HEADER_MOBILE_OS = "client-os";
     private static final String HEADER_APP_VERSION = "app-version";
-
     private final RestAdapter REST_ADAPTER_AUTH_HEADER;
 
     public RestClient(Context context) {
@@ -39,6 +42,16 @@ public class RestClient {
 
     public OkClient getOkClient() {
         return null;
+    }
+
+
+    public ApiService getService(int headerType) {
+
+        if (headerType == AUTH_HEADER) {
+            return REST_ADAPTER_AUTH_HEADER.create(ApiService.class);
+        } else {
+            return REST_ADAPTER_AUTH_HEADER.create(ApiService.class);
+        }
     }
 
     private class CommonRequestInterceptor implements RequestInterceptor {
