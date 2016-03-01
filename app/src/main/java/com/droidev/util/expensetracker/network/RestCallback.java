@@ -21,7 +21,10 @@ public abstract class RestCallback<T> implements Callback<T> {
 
     @Override
     public void failure(RetrofitError error) {
-        // TODO: 26/2/16 Convert Retrofit error to RestError
-        error(null);
+        RestError restError = new RestError();
+//        restError.setErrorCode(error.getResponse().getStatus());
+        restError.setMessage(error.getMessage());
+        restError.setStatus(false);
+        error(restError);
     }
 }

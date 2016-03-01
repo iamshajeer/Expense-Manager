@@ -21,4 +21,13 @@
     <string name="expense_cost">$</string>
     <string name="add_expense">Add</string>
     <string name="add_expense_title">Add your expense</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="not_registered"><u>Not Registered?</u></string>
+    <string name="empty_email_error_message">Please enter an email</string>
+    <string name="invalid_email_error_message">Please enter a valid email</string>
+    <string name="empty_password_error_message">Please enter your password</string>
+    <string name="short_password_error_message">Password must contain atleast 6 characters</string>
+    <string name="unregistered_user_error_message">This email is not registered</string>
 </resources>

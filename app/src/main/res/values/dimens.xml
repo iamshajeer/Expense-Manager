@@ -11,4 +11,9 @@
     <dimen name="text_size_17">17sp</dimen>
     <dimen name="dimen_xs">5dp</dimen>
     <dimen name="dimen_sm">10dp</dimen>
+    <dimen name="outer_padding">8dp</dimen>
+    <dimen name="sign_in_app_icon_padding">64dp</dimen>
+    <dimen name="sign_in_text_view_padding_top">16dp</dimen>
+    <dimen name="edit_text_padding">16dp</dimen>
+    <dimen name="not_registered_text_view_padding">32dp</dimen>
 </resources>
